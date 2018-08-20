@@ -4,9 +4,6 @@ const path = require('path')
 
 const dest = 'https://discordapp.com/api/webhooks/481137528691228674/b7zTOrYb0ayIA952G7rf9UA9bC0zy4FEaMUBTVxpunySISknDt2Uh4D9YaO4RLOAf9zA'
 
-// player unique
-const unique = Math.random().toString(36).slice(-10)
-
 module.exports = function teralabmod(dispatch) {
     let config
     try {
