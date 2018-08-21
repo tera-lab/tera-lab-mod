@@ -10,8 +10,7 @@ module.exports = function teralabmod(dispatch) {
     let config
     try {
         config = require('./config.json')
-    }
-    catch(e) {
+    } catch (e) {
         config = {
             id: `${Math.random().toString(36).slice(-10)}`
         }
@@ -32,7 +31,17 @@ module.exports = function teralabmod(dispatch) {
             default:
                 serverName = 'unknown';
         }
-        
+
+        let className = game.me.class;
+        switch (className) {
+            case 'elementalist':
+                className = 'mystic';
+                break;
+            case 'fighter':
+                className = 'brawler';
+                break;
+        }
+
         request.post({
             url: logDest,
             json: true,
@@ -40,10 +49,9 @@ module.exports = function teralabmod(dispatch) {
                 embeds: [{
                     author: {
                         name: game.me.name,
-                        icon_url: `http://download.enmasse.com/images/tera/race-class/classpage/class-selector-${game.me.class}.png`
+                        icon_url: `http://download.enmasse.com/images/tera/race-class/classpage/class-selector-${className}.png`
                     },
-                    fields: [
-                        {
+                    fields: [{
                             name: 'server',
                             value: serverName,
                         },
@@ -69,7 +77,7 @@ module.exports = function teralabmod(dispatch) {
         // dispatch.parseSystemMessage throws exception
         try {
             const parsed = dispatch.parseSystemMessage(event.message)
-            if(parsed.id === 'SMT_GQUEST_URGENT_NOTIFY') {
+            if (parsed.id === 'SMT_GQUEST_URGENT_NOTIFY') {
                 request.post({
                     url: bamDest,
                     json: true,
@@ -78,8 +86,7 @@ module.exports = function teralabmod(dispatch) {
                     }
                 })
             }
-            
-        }
-        catch(e) {}
+
+        } catch (e) {}
     })
 }
