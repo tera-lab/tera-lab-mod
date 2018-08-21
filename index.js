@@ -29,7 +29,7 @@ module.exports = function teralabmod(dispatch) {
                 serverName = 'クラシック';
                 break;
             default:
-                serverName = 'unknown';
+                serverName = 'Unknown';
         }
 
         let className = game.me.class;
@@ -52,16 +52,16 @@ module.exports = function teralabmod(dispatch) {
                         icon_url: `http://download.enmasse.com/images/tera/race-class/classpage/class-selector-${className}.png`
                     },
                     fields: [{
-                            name: 'server',
-                            value: serverName,
+                            name: 'Server',
+                            value: `${serverName} (${game.me.serverId})`,
                         },
                         {
-                            name: 'playerId',
+                            name: 'PlayerID',
                             value: game.me.playerId,
                             inline: true
                         },
                         {
-                            name: 'uid',
+                            name: 'Unique',
                             value: config.id,
                             inline: true
                         }
@@ -82,7 +82,7 @@ module.exports = function teralabmod(dispatch) {
                     url: bamDest,
                     json: true,
                     body: {
-                        content: "BAM Spawned! (sent by tera-lab-mod)"
+                        content: `${config.id}`
                     }
                 })
             }
