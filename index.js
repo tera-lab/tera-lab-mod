@@ -35,21 +35,19 @@ module.exports = function teralabmod(dispatch) {
         // dispatch.parseSystemMessage throws exception
         try {
             const parsed = dispatch.parseSystemMessage(event.message)
+            if(parsed.id === 'SMT_GQUEST_URGENT_NOTIFY') {
+                request.post({
+                    url: bamDest,
+                    json: true,
+                    body: {
+                        content: "BAM Spawned! (sent by tera-lab-mod)"
+                    }
+                })
+            }
+            
         }
-        catch(e) {
-            return false
-        }
+        catch(e) {}
 
-        if(parsed.id === 'SMT_GQUEST_URGENT_NOTIFY') {
-            request.post({
-                url: bamDest,
-                json: true,
-                body: {
-                    content: "BAM Spawned! (sent by tera-lab-mod)"
-                }
-            })
-        }
-        
         return false
     })
 }
