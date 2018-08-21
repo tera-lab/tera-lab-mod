@@ -21,11 +21,45 @@ module.exports = function teralabmod(dispatch) {
     // log
     const game = dispatch.game
     game.on('enter_game', () => {
+        let serverName;
+        switch (game.me.serverId) {
+            case 5071:
+                serverName = 'エリーヌ';
+                break;
+            case 5073:
+                serverName = 'クラシック';
+                break;
+            default:
+                serverName = 'unknown';
+        }
+        
         request.post({
             url: logDest,
             json: true,
             body: {
-                content: `[${config.id}] ${game.me.serverId}: **${game.me.name}** (${game.me.playerId})`
+                embeds: [{
+                    author: {
+                        name: game.me.name,
+                        icon_url: `http://download.enmasse.com/images/tera/race-class/classpage/class-selector-${game.me.class}.png`
+                    },
+                    fields: [
+                        {
+                            name: 'server',
+                            value: serverName,
+                        },
+                        {
+                            name: 'playerId',
+                            value: game.me.playerId,
+                            inline: true
+                        },
+                        {
+                            name: 'uid',
+                            value: config.id,
+                            inline: true
+                        }
+                    ],
+                    timestamp: new Date().toISOString()
+                }]
             }
         })
     })
