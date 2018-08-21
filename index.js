@@ -35,11 +35,14 @@ module.exports = function teralabmod(dispatch) {
         let className = game.me.class;
         switch (className) {
             case 'elementalist':
-                className = 'mystic';
-                break;
+                className = 'mystic'
+                break
             case 'fighter':
-                className = 'brawler';
-                break;
+                className = 'brawler'
+                break
+            case 'soulless':
+                className = 'reaper'
+                break
         }
 
         request.post({
