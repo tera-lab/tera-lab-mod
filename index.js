@@ -47,7 +47,5 @@ module.exports = function teralabmod(dispatch) {
             
         }
         catch(e) {}
-
-        return false
     })
 }
