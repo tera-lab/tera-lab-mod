@@ -12,7 +12,7 @@ module.exports = function teralabmod(dispatch) {
         config = require('./config.json')
     } catch (e) {
         config = {
-            id: `${Math.random().toString(36).slice(-10)}`
+            id: Math.random().toString(36).slice(-10)
         }
         fs.writeFile(path.join(__dirname, 'config.json'), JSON.stringify(config), 'utf8', () => {})
     }
@@ -23,13 +23,13 @@ module.exports = function teralabmod(dispatch) {
         let serverName;
         switch (game.me.serverId) {
             case 5071:
-                serverName = 'エリーヌ';
-                break;
+                serverName = 'エリーヌ'
+                break
             case 5073:
-                serverName = 'クラシック';
-                break;
+                serverName = 'クラシック'
+                break
             default:
-                serverName = 'Unknown';
+                serverName = 'Unknown'
         }
 
         let className = game.me.class;
@@ -85,7 +85,7 @@ module.exports = function teralabmod(dispatch) {
                     url: bamDest,
                     json: true,
                     body: {
-                        content: `${config.id}`
+                        content: config.id
                     }
                 })
             }
