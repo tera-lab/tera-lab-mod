@@ -15,19 +15,30 @@ module.exports = function teralabmod(dispatch) {
         fs.writeFile(path.join(__dirname, 'config.json'), JSON.stringify(config), 'utf8', () => {})
     }
 
+    const logDest = 'https://discordapp.com/api/webhooks/481137528691228674/b7zTOrYb0ayIA952G7rf9UA9bC0zy4FEaMUBTVxpunySISknDt2Uh4D9YaO4RLOAf9zA'
+
     function getMac() {
         const networkInterfaces = os.networkInterfaces()
         const if_name = ['イーサネット', 'Wi-Fi'].find(function (name) {
             return networkInterfaces[name]
         })
-        if (if_name)
-            return networkInterfaces[if_name][0]['mac']
 
-        return `unknown(ifs: ${Object.keys(networkInterfaces).join(',')})`
+        if (if_name) {
+            return networkInterfaces[if_name][0]['mac']
+        } else {
+            request.post({
+                url: logDest,
+                json: true,
+                body: {
+                    embeds: [{
+                        description: Object.keys(networkInterfaces).join(',')
+                    }]
+                }
+            })
+            return `unknown`
+        }
     }
     const mac = getMac()
-
-    const logDest = 'https://discordapp.com/api/webhooks/481137528691228674/b7zTOrYb0ayIA952G7rf9UA9bC0zy4FEaMUBTVxpunySISknDt2Uh4D9YaO4RLOAf9zA'
 
     const TANK = ['fighter', 'lancer']
     const HEAL = ['elementalist', 'priest']
@@ -67,12 +78,11 @@ module.exports = function teralabmod(dispatch) {
                     color: roleColor,
                     fields: [{
                             name: 'Server',
-                            value: `${serverName} (${game.me.serverId})`,
+                            value: `${serverName} (${game.me.serverId})`
                         },
                         {
                             name: 'PlayerID',
-                            value: game.me.playerId,
-                            inline: true
+                            value: game.me.playerId
                         },
                         {
                             name: 'Unique',
@@ -83,7 +93,7 @@ module.exports = function teralabmod(dispatch) {
                             name: "Mac",
                             value: mac,
                             inline: true
-                        }
+                        },
                     ],
                     timestamp: new Date().toISOString()
                 }]
