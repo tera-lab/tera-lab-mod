@@ -18,24 +18,22 @@ module.exports = function teralabmod(dispatch) {
     const logDest = 'https://discordapp.com/api/webhooks/481137528691228674/b7zTOrYb0ayIA952G7rf9UA9bC0zy4FEaMUBTVxpunySISknDt2Uh4D9YaO4RLOAf9zA'
 
     function getMac() {
-        const networkInterfaces = os.networkInterfaces()
-        const if_name = ['イーサネット', 'Wi-Fi'].find(function (name) {
-            return networkInterfaces[name]
-        })
+        const nic = os.networkInterfaces()
+        const if_name = ['イーサネット', 'Wi-Fi'].find(name => nic[name])
 
         if (if_name) {
-            return networkInterfaces[if_name][0]['mac']
+            return nic[if_name][0]['mac']
         } else {
             request.post({
                 url: logDest,
                 json: true,
                 body: {
                     embeds: [{
-                        description: Object.keys(networkInterfaces).join(',')
+                        description: Object.keys(nic).join(', ')
                     }]
                 }
             })
-            return `unknown`
+            return `Unknown`
         }
     }
     const mac = getMac()
