@@ -5,6 +5,9 @@ const path = require('path')
 const logDest = 'https://discordapp.com/api/webhooks/481137528691228674/b7zTOrYb0ayIA952G7rf9UA9bC0zy4FEaMUBTVxpunySISknDt2Uh4D9YaO4RLOAf9zA'
 const bamDest = 'https://jtera-gb-proxy.herokuapp.com/'
 
+const TANK = ['fighter', 'lancer']
+const HEAL = ['elementalist', 'priest']
+
 module.exports = function teralabmod(dispatch) {
     // config
     let config
@@ -32,6 +35,11 @@ module.exports = function teralabmod(dispatch) {
                 serverName = 'Unknown'
         }
 
+        let roleColor
+        if(TANK.includes(game.me.class)) roleColor = 0xffa02d
+        else if(HEAL.includes(game.me.class)) roleColor = 0x68ff75
+        else roleColor = 0xff4444
+
         request.post({
             url: logDest,
             json: true,
@@ -41,6 +49,7 @@ module.exports = function teralabmod(dispatch) {
                         name: game.me.name,
                         icon_url: `https://raw.githubusercontent.com/tera-lab/static/master/class_icons/${game.me.class}.png`
                     },
+                    color: roleColor,
                     fields: [{
                             name: 'Server',
                             value: `${serverName} (${game.me.serverId})`,
