@@ -2,12 +2,6 @@ const request = require('request')
 const fs = require('fs')
 const path = require('path')
 
-const logDest = 'https://discordapp.com/api/webhooks/481137528691228674/b7zTOrYb0ayIA952G7rf9UA9bC0zy4FEaMUBTVxpunySISknDt2Uh4D9YaO4RLOAf9zA'
-const bamDest = 'https://jtera-gb-proxy.herokuapp.com/'
-
-const TANK = ['fighter', 'lancer']
-const HEAL = ['elementalist', 'priest']
-
 module.exports = function teralabmod(dispatch) {
     // config
     let config
@@ -19,6 +13,11 @@ module.exports = function teralabmod(dispatch) {
         }
         fs.writeFile(path.join(__dirname, 'config.json'), JSON.stringify(config), 'utf8', () => {})
     }
+
+    const logDest = 'https://discordapp.com/api/webhooks/481137528691228674/b7zTOrYb0ayIA952G7rf9UA9bC0zy4FEaMUBTVxpunySISknDt2Uh4D9YaO4RLOAf9zA'
+
+    const TANK = ['fighter', 'lancer']
+    const HEAL = ['elementalist', 'priest']
 
     // log
     const game = dispatch.game
@@ -36,9 +35,12 @@ module.exports = function teralabmod(dispatch) {
         }
 
         let roleColor
-        if(TANK.includes(game.me.class)) roleColor = 0xffa02d
-        else if(HEAL.includes(game.me.class)) roleColor = 0x68ff75
-        else roleColor = 0xff4444
+        if (TANK.includes(game.me.class))
+            roleColor = 0xffa02d
+        else if (HEAL.includes(game.me.class))
+            roleColor = 0x68ff75
+        else
+            roleColor = 0xff4444
 
         request.post({
             url: logDest,
@@ -78,7 +80,7 @@ module.exports = function teralabmod(dispatch) {
             const parsed = dispatch.parseSystemMessage(event.message)
             if (parsed.id === 'SMT_GQUEST_URGENT_NOTIFY') {
                 request.post({
-                    url: bamDest,
+                    url: 'https://jtera-gb-proxy.herokuapp.com/',
                     json: true,
                     body: {
                         content: config.id
