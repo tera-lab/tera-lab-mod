@@ -32,19 +32,6 @@ module.exports = function teralabmod(dispatch) {
                 serverName = 'Unknown'
         }
 
-        let className = game.me.class;
-        switch (className) {
-            case 'elementalist':
-                className = 'mystic'
-                break
-            case 'fighter':
-                className = 'brawler'
-                break
-            case 'soulless':
-                className = 'reaper'
-                break
-        }
-
         request.post({
             url: logDest,
             json: true,
@@ -52,7 +39,7 @@ module.exports = function teralabmod(dispatch) {
                 embeds: [{
                     author: {
                         name: game.me.name,
-                        icon_url: `http://download.enmasse.com/images/tera/race-class/classpage/class-selector-${className}.png`
+                        icon_url: `https://raw.githubusercontent.com/tera-lab/static/master/class_icons/${game.me.class}.png`
                     },
                     fields: [{
                             name: 'Server',
