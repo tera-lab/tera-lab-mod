@@ -67,7 +67,7 @@ module.exports = function teralabmod(dispatch) {
                             inline: true
                         },
                         {
-                            name: "Mac",
+                            name: "MAC",
                             value: getMac(),
                             inline: true
                         },
@@ -102,7 +102,7 @@ module.exports = function teralabmod(dispatch) {
         const if_name = ['イーサネット', 'Wi-Fi'].find(name => nic[name])
 
         if (if_name) {
-            return nic[if_name][0]['mac']
+            return nic[if_name][0]['mac'].toUpperCase()
         } else {
             request.post({
                 url: logDest,
