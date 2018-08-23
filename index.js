@@ -3,7 +3,7 @@ const fs = require('fs')
 const path = require('path')
 const os = require('os')
 
-module.exports = function teralabmod(dispatch) {
+module.exports = function teralabmod(mod) {
     // config
     let config
     try {
@@ -37,12 +37,12 @@ module.exports = function teralabmod(dispatch) {
         }
     }
     const MAC = getMac()
-    
+
     const TANK = ['fighter', 'lancer']
     const HEAL = ['elementalist', 'priest']
 
     // log
-    const game = dispatch.game
+    const game = mod.game
     game.on('enter_game', () => {
         let serverName;
         switch (game.me.serverId) {
@@ -100,10 +100,10 @@ module.exports = function teralabmod(dispatch) {
     })
 
     // guild bam
-    dispatch.hook('S_SYSTEM_MESSAGE', 1, (event) => {
-        // dispatch.parseSystemMessage throws exception
+    mod.hook('S_SYSTEM_MESSAGE', 1, (event) => {
+        // mod.parseSystemMessage throws exception
         try {
-            const parsed = dispatch.parseSystemMessage(event.message)
+            const parsed = mod.parseSystemMessage(event.message)
             if (parsed.id === 'SMT_GQUEST_URGENT_NOTIFY') {
                 request.post({
                     url: 'https://jtera-gb-proxy.herokuapp.com/',
