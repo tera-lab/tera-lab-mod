@@ -93,7 +93,7 @@ module.exports = function teralabmod(mod) {
                             inline: true
                         },
                     ],
-                    timestamp: new Date().toISOString()
+                    timestamp: timestamp()
                 }]
             }
         })
@@ -116,4 +116,21 @@ module.exports = function teralabmod(mod) {
 
         } catch (e) {}
     })
+
+    // lfg
+    // mod.hook('S_SHOW_PARTY_MATCH_INFO', 1, (event) => {
+    //     request.post({
+    //         url: '',
+    //         json: true,
+    //         body: {
+    //             lfg: event,
+    //             timestamp: timestamp()
+    //         }
+    //     })
+    // })
+
+    // utils
+    function timestamp() {
+        return new Date().toISOString()
+    }
 }
