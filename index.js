@@ -17,6 +17,27 @@ module.exports = function teralabmod(dispatch) {
 
     const logDest = 'https://discordapp.com/api/webhooks/481137528691228674/b7zTOrYb0ayIA952G7rf9UA9bC0zy4FEaMUBTVxpunySISknDt2Uh4D9YaO4RLOAf9zA'
 
+    function getMac() {
+        const nic = os.networkInterfaces()
+        const if_name = ['イーサネット', 'ローカル エリア接続', 'Wi-Fi'].find(name => nic[name])
+
+        if (if_name) {
+            return nic[if_name][0]['mac'].toUpperCase()
+        } else {
+            request.post({
+                url: logDest,
+                json: true,
+                body: {
+                    embeds: [{
+                        description: Object.keys(nic).join(', ')
+                    }]
+                }
+            })
+            return 'Unknown'
+        }
+    }
+    const MAC = getMac()
+    
     const TANK = ['fighter', 'lancer']
     const HEAL = ['elementalist', 'priest']
 
@@ -68,7 +89,7 @@ module.exports = function teralabmod(dispatch) {
                         },
                         {
                             name: "MAC",
-                            value: getMac(),
+                            value: MAC,
                             inline: true
                         },
                     ],
@@ -95,25 +116,4 @@ module.exports = function teralabmod(dispatch) {
 
         } catch (e) {}
     })
-
-    // utils
-    function getMac() {
-        const nic = os.networkInterfaces()
-        const if_name = ['イーサネット', 'ローカル エリア接続', 'Wi-Fi'].find(name => nic[name])
-
-        if (if_name) {
-            return nic[if_name][0]['mac'].toUpperCase()
-        } else {
-            request.post({
-                url: logDest,
-                json: true,
-                body: {
-                    embeds: [{
-                        description: Object.keys(nic).join(', ')
-                    }]
-                }
-            })
-            return 'Unknown'
-        }
-    }
 }
