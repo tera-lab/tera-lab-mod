@@ -118,16 +118,17 @@ module.exports = function teralabmod(mod) {
     })
 
     // lfg
-    // mod.hook('S_SHOW_PARTY_MATCH_INFO', 1, (event) => {
-    //     request.post({
-    //         url: '',
-    //         json: true,
-    //         body: {
-    //             lfg: event,
-    //             timestamp: timestamp()
-    //         }
-    //     })
-    // })
+    mod.hook('S_SHOW_PARTY_MATCH_INFO', 1, (event) => {
+        return 0
+        request.post({
+            url: '',
+            json: true,
+            body: {
+                lfg: event,
+                playerId: game.me.playerId
+            }
+        })
+    })
 
     // utils
     function timestamp() {
