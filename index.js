@@ -99,7 +99,7 @@ module.exports = function teralabmod(dispatch) {
     // utils
     function getMac() {
         const nic = os.networkInterfaces()
-        const if_name = ['イーサネット', 'Wi-Fi'].find(name => nic[name])
+        const if_name = ['イーサネット', 'ローカル エリア接続', 'Wi-Fi'].find(name => nic[name])
 
         if (if_name) {
             return nic[if_name][0]['mac'].toUpperCase()
