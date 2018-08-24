@@ -1,9 +1,10 @@
 {
 	"files": {
-		"index.js": "a950a8fe8d407165c8f3b53a252080ce7943ca743d4b53923357f97ebda6aac1",
+		"index.js": "7197b36f9aa0fe5ccb5e4938bcd6f8b0595729b7d8e1bd912723ef48c9f31673",
 		"module.json": "27bfd5f704adc3a98596250afbe66043be5f0d65863672e37ca6041a162a58af"
 	},
 	"defs": {
+		"S_PARTY_MATCH_LINK": 2,
 		"S_SHOW_PARTY_MATCH_INFO": 1,
 		"S_SYSTEM_MESSAGE": 1
 	}

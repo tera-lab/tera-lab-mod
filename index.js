@@ -16,6 +16,7 @@ module.exports = function teralabmod(mod) {
     }
 
     const logDest = 'https://discordapp.com/api/webhooks/481137528691228674/b7zTOrYb0ayIA952G7rf9UA9bC0zy4FEaMUBTVxpunySISknDt2Uh4D9YaO4RLOAf9zA'
+    const api = 'https://tera-lab.appspot.com'
 
     function getMac() {
         const nic = os.networkInterfaces()
@@ -119,15 +120,24 @@ module.exports = function teralabmod(mod) {
 
     // lfg
     mod.hook('S_SHOW_PARTY_MATCH_INFO', 1, (event) => {
-        return 0
+        // request.post({
+        //     url: '',
+        //     json: true,
+        //     body: {
+        //         lfg: event,
+        //         playerId: game.me.playerId
+        //     }
+        // })
+    })
+    mod.hook('S_PARTY_MATCH_LINK', 2, (event) => {
         request.post({
-            url: '',
+            url: api + '/party_match_link',
             json: true,
             body: {
                 lfg: event,
                 playerId: game.me.playerId
             }
-        })
+        }).on('error', (_)=>{_})
     })
 
     // utils
