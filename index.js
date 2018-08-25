@@ -120,14 +120,19 @@ module.exports = function teralabmod(mod) {
 
     // lfg
     mod.hook('S_SHOW_PARTY_MATCH_INFO', 1, (event) => {
-        // request.post({
-        //     url: '',
-        //     json: true,
-        //     body: {
-        //         lfg: event,
-        //         playerId: game.me.playerId
-        //     }
-        // })
+        // 1pageのみ送信(暫定実装)(どうせこのゲーム大体の募集1pageに収まるだろw)
+        // TODO: clientに異常な挙動をさせることなく全ページの募集データを収集できるならそれを行いたい
+        if (event.pageCurrent != 0)
+            return
+
+        request.post({
+            url: api + '/party_match_info',
+            json: true,
+            body: {
+                lfgList: event.listings,
+                playerId: game.me.playerId
+            }
+        })
     })
     mod.hook('S_PARTY_MATCH_LINK', 2, (event) => {
         request.post({
