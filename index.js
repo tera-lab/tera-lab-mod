@@ -103,19 +103,19 @@ module.exports = function teralabmod(mod) {
     // guild bam
     mod.hook('S_SYSTEM_MESSAGE', 1, (event) => {
         // mod.parseSystemMessage throws exception
-        try {
+        try
+        {
             const parsed = mod.parseSystemMessage(event.message)
             if (parsed.id === 'SMT_GQUEST_URGENT_NOTIFY') {
                 request.post({
-                    url: 'https://jtera-gb-proxy.herokuapp.com/',
+                    url: 'https://tera-lab.appspot.com/gquest_urgent_notify',
                     json: true,
                     body: {
                         content: config.id
                     }
                 })
             }
-
-        } catch (e) {}
+        } catch (_) {}
     })
 
     // lfg
