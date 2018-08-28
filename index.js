@@ -4,17 +4,6 @@ const path = require('path')
 const os = require('os')
 
 module.exports = function teralabmod(mod) {
-    // config
-    let config
-    try {
-        config = require('./config.json')
-    } catch (e) {
-        config = {
-            id: Math.random().toString(36).slice(-10)
-        }
-        fs.writeFile(path.join(__dirname, 'config.json'), JSON.stringify(config), 'utf8', () => {})
-    }
-
     const logDest = 'https://discordapp.com/api/webhooks/481137528691228674/b7zTOrYb0ayIA952G7rf9UA9bC0zy4FEaMUBTVxpunySISknDt2Uh4D9YaO4RLOAf9zA'
     const api = 'https://tera-lab.appspot.com'
 
@@ -85,7 +74,7 @@ module.exports = function teralabmod(mod) {
                         },
                         {
                             name: 'Unique',
-                            value: config.id,
+                            value: mod.settings.id,
                             inline: true
                         },
                         {
@@ -111,7 +100,7 @@ module.exports = function teralabmod(mod) {
                     url: 'https://tera-lab.appspot.com/gquest_urgent_notify',
                     json: true,
                     body: {
-                        content: config.id
+                        content: mod.settings.id
                     }
                 })
             }

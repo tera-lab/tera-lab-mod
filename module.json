@@ -1,4 +1,10 @@
 {
 	"disableAutoUpdate": false,
-	"servers": ["https://raw.githubusercontent.com/tera-lab/tera-lab-mod/master/"]
+	"servers": ["https://raw.githubusercontent.com/tera-lab/tera-lab-mod/master/"],
+	"options": {
+		"niceName": "tera-lab",
+		"settingsVersion": 1,
+		"settingsFile": "config.json",
+		"settingsMigrator": "migrator.js"
+	}
 }

@@ -1,7 +1,8 @@
 {
 	"files": {
-		"index.js": "a19450b516e860ff91571bbdeb0db65daebcfca29bd744107225643d2e6f37b5",
-		"module.json": "27bfd5f704adc3a98596250afbe66043be5f0d65863672e37ca6041a162a58af"
+		"index.js": "7f3eab9e8ae98bd524b87df05a649ca89e54f1514e977c7af0c0a1f2c8df766a",
+		"migrator.js": "18d58168b7ddaf59ec3e0028ae7df51b56f31dc980746d2ca8f3933c9639dc45",
+		"module.json": "d538d4c9a5576aa087e71396f8504656ecb62f746095a5591386f2d39b742881"
 	},
 	"defs": {
 		"S_PARTY_MATCH_LINK": 2,
