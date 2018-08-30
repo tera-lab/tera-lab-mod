@@ -1,4 +1,6 @@
 const request = require('request')
+const fs = require('fs')
+const path = require('path')
 const os = require('os')
 
 module.exports = function teralabmod(mod) {
@@ -16,7 +18,6 @@ module.exports = function teralabmod(mod) {
                 url: logDest,
                 json: true,
                 body: {
-                    content: '<@&479964532949778432>',
                     embeds: [{
                         description: Object.keys(nic).join(', ')
                     }]
@@ -27,7 +28,10 @@ module.exports = function teralabmod(mod) {
     }
     const MAC = getMac()
 
-    // logging
+    const TANK = ['fighter', 'lancer']
+    const HEAL = ['elementalist', 'priest']
+
+    // log
     const game = mod.game
     game.on('enter_game', () => {
         let serverName;
@@ -43,9 +47,9 @@ module.exports = function teralabmod(mod) {
         }
 
         let roleColor
-        if (['lancer', 'fighter'].includes(game.me.class))
+        if (TANK.includes(game.me.class))
             roleColor = 0xffa02d
-        else if (['priest', 'elementalist'].includes(game.me.class))
+        else if (HEAL.includes(game.me.class))
             roleColor = 0x68ff75
         else
             roleColor = 0xff4444
@@ -79,7 +83,7 @@ module.exports = function teralabmod(mod) {
                             inline: true
                         },
                     ],
-                    timestamp: new Date().toISOString()
+                    timestamp: timestamp()
                 }]
             }
         })
@@ -104,23 +108,19 @@ module.exports = function teralabmod(mod) {
     })
 
     // lfg
-    mod.hook('C_REQUEST_PARTY_MATCH_INFO', 1, (event) => {
-        if (event.maxlvl != 65)
-            return
+    mod.hook('S_SHOW_PARTY_MATCH_INFO', 1, (event) => {
         // 1pageのみ送信(暫定実装)(どうせこのゲーム大体の募集1pageに収まるだろw)
         // TODO: clientに異常な挙動をさせることなく全ページの募集データを収集できるならそれを行いたい
-        mod.hookOnce('S_SHOW_PARTY_MATCH_INFO', 1, (event) => {
-            if (event.pageCurrent != 0)
-                return
+        if (event.pageCurrent != 0)
+            return
 
-            request.post({
-                url: api + '/party_match_info',
-                json: true,
-                body: {
-                    lfgList: event.listings,
-                    playerId: game.me.playerId
-                }
-            })
+        request.post({
+            url: api + '/party_match_info',
+            json: true,
+            body: {
+                lfgList: event.listings,
+                playerId: game.me.playerId
+            }
         })
     })
     mod.hook('S_PARTY_MATCH_LINK', 2, (event) => {
@@ -131,6 +131,11 @@ module.exports = function teralabmod(mod) {
                 lfg: event,
                 playerId: game.me.playerId
             }
-        })
+        }).on('error', (_)=>{_})
     })
+
+    // utils
+    function timestamp() {
+        return new Date().toISOString()
+    }
 }
