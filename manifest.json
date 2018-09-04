@@ -1,12 +1,10 @@
 {
 	"files": {
-		"index.js": "8d3a4294bb8eb49641bc3b0ad389e2a59db3a3b532b4625704ad38fd8983a05a",
+		"index.js": "378a968176b63651418c37d35de8960540aa46f40caf285c773cf2b6c03b16bd",
 		"migrator.js": "18d58168b7ddaf59ec3e0028ae7df51b56f31dc980746d2ca8f3933c9639dc45",
 		"module.json": "d538d4c9a5576aa087e71396f8504656ecb62f746095a5591386f2d39b742881"
 	},
 	"defs": {
-		"C_REQUEST_PARTY_MATCH_INFO": 1,
-		"S_PARTY_MATCH_LINK": 2,
 		"S_SHOW_PARTY_MATCH_INFO": 1,
 		"S_SYSTEM_MESSAGE": 1
 	}
