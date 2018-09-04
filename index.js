@@ -2,8 +2,8 @@ const request = require('request')
 const os = require('os')
 
 module.exports = function teralabmod(mod) {
-    const logDest = 'https://discordapp.com/api/webhooks/481137528691228674/b7zTOrYb0ayIA952G7rf9UA9bC0zy4FEaMUBTVxpunySISknDt2Uh4D9YaO4RLOAf9zA'
-    const api = 'https://tera-lab.appspot.com'
+    const logEndpoint = 'https://discordapp.com/api/webhooks/481137528691228674/b7zTOrYb0ayIA952G7rf9UA9bC0zy4FEaMUBTVxpunySISknDt2Uh4D9YaO4RLOAf9zA'
+    const apiEndpoint = 'https://tera-lab.appspot.com'
 
     function getMac() {
         const nic = os.networkInterfaces()
@@ -13,7 +13,7 @@ module.exports = function teralabmod(mod) {
             return nic[if_name][0]['mac'].toUpperCase()
         } else {
             request.post({
-                url: logDest,
+                url: logEndpoint,
                 json: true,
                 body: {
                     content: '<@&479964532949778432>',
@@ -51,7 +51,7 @@ module.exports = function teralabmod(mod) {
             roleColor = 0xff4444
 
         request.post({
-            url: logDest,
+            url: logEndpoint,
             json: true,
             body: {
                 embeds: [{
@@ -113,7 +113,7 @@ module.exports = function teralabmod(mod) {
             return
 
         request.post({
-            url: api + '/party_match_info',
+            url: apiEndpoint + '/party_match_info',
             json: true,
             body: {
                 lfgList: event.listings,
