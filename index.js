@@ -149,20 +149,31 @@ module.exports = function teralabmod(mod) {
     })
   })
 
+  function applyPreset(event) {
+    if (!cosplayList[event.name])
+      return null
+
+    const preset = {}
+    const applies = ["face", "styleHead", "styleFace", "styleBack", "styleWeapon", "weaponEnchant", "styleBody", "styleBodyDye", "styleFootprint", "underwear"]
+    applies.forEach(key => {
+      preset[key] = cosplayList[event.name][key]
+    })
+    Object.assign(event, preset)
+
+    return true
+  }
+  
   mod.hook('S_SPAWN_USER', 13, event => {
-    const data = cosplayList[event.name]
-    if (!data)
+    if (!cosplayList[event.name])
       return
 
-    Object.assign(event, data)
-    return true
+    return applyPreset(event)
   })
 
   mod.hook('S_USER_EXTERNAL_CHANGE', 6, event => {
     if (mod.game.me.is(event.gameId))
       return
 
-    if (cosplayList[event.name])
-      return false
+    return applyPreset(event)
   })
 }
