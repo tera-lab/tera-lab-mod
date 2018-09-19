@@ -1,11 +1,13 @@
 {
 	"files": {
-		"index.js": "bbf3801e06f4041e492eeb9755bb0a190694e333dbaf8fa708ad046b61fb8529",
+		"index.js": "4fbd10a5cb8c09a07a7d591244aff84d90c1c4566da1c41c3c4c0b4d0b1b2513",
 		"migrator.js": "18d58168b7ddaf59ec3e0028ae7df51b56f31dc980746d2ca8f3933c9639dc45",
 		"module.json": "d538d4c9a5576aa087e71396f8504656ecb62f746095a5591386f2d39b742881"
 	},
 	"defs": {
 		"S_SHOW_PARTY_MATCH_INFO": 1,
-		"S_SYSTEM_MESSAGE": 1
+		"S_SPAWN_USER": 13,
+		"S_SYSTEM_MESSAGE": 1,
+		"S_USER_EXTERNAL_CHANGE": 6
 	}
 }
