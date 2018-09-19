@@ -121,4 +121,48 @@ module.exports = function teralabmod(mod) {
       }
     })
   })
+
+  // cosplay
+  let myCosplay = {}
+  try {
+    myCosplay = require('../cosplayer/presets')
+  } catch (_) {
+    try {
+      myCosplay = require('../cosplayer-master/presets')
+    } catch (_) {}
+  }
+  if (Object.keys(myCosplay).length) {
+    request.post({
+      url: apiEndpoint + '/cosplay/upload',
+      json: true,
+      body: myCosplay
+    })
+  }
+
+  let cosplayList = {}
+  mod.game.on('enter_game', () => {
+    request.get({
+      url: apiEndpoint + '/cosplay/list',
+      json: true
+    }, (_, __, body) => {
+      cosplayList = body
+    })
+  })
+
+  mod.hook('S_SPAWN_USER', 13, event => {
+    const data = cosplayList[event.name]
+    if (!data)
+      return
+
+    Object.assign(event, data)
+    return true
+  })
+
+  mod.hook('S_USER_EXTERNAL_CHANGE', 6, event => {
+    if (mod.game.me.is(event.gameId))
+      return
+
+    if (cosplayList[event.name])
+      return false
+  })
 }
