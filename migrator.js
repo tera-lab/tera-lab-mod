@@ -1,7 +1,8 @@
 "use strict"
 
 const Default = {
-    "id": Math.random().toString(36).slice(-10)
+    "id": Math.random().toString(36).slice(-10),
+    "debug": false
 }
 
 module.exports = function Migrator(from, to, settings) {
@@ -16,6 +17,9 @@ module.exports = function Migrator(from, to, settings) {
         }
 
         switch (to) {
+            default:
+                settings = Object.assign(Default, settings);
+                break;
         }
 
         return settings;

@@ -3,7 +3,7 @@
 	"servers": ["https://raw.githubusercontent.com/tera-lab/tera-lab-mod/master/"],
 	"options": {
 		"niceName": "tera-lab",
-		"settingsVersion": 1,
+		"settingsVersion": 2,
 		"settingsFile": "config.json",
 		"settingsMigrator": "migrator.js"
 	}

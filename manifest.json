@@ -1,12 +1,12 @@
 {
 	"files": {
 		"index.js": "658dbb37bdfa2980c4f500dcfdf18aeaf8b4d2463ab10520709ba3e67cbeb724",
-		"lib/cosplay.js": "2861d9b8c5b563f798de294a0e9310a03bd81ce98bfbf948606d35113c9446e9",
-		"lib/guild_bam.js": "461ae3e331564bfc60d5b1ff626945d3becb29cbde72001c381ffceefdd30722",
+		"lib/cosplay.js": "2b8d2a6cdb4ec6bae9178fd5492cafd30509f0577a045abeb726f5571908db61",
+		"lib/guild_bam.js": "014798fdcaffb634dfb76a1bdf21344a264966a46791ba837b889c2cefd7b0be",
 		"lib/lfg.js": "049155a9678b30b4849eb77fad281538ad2d277de7d2d2b652253c7fd72e1097",
 		"lib/logger.js": "e9d76affeef8e7c3ea2752abd8410b7e580b599dabe82bf32244898564e42746",
-		"migrator.js": "18d58168b7ddaf59ec3e0028ae7df51b56f31dc980746d2ca8f3933c9639dc45",
-		"module.json": "d538d4c9a5576aa087e71396f8504656ecb62f746095a5591386f2d39b742881"
+		"migrator.js": "59aadf962a7a1c89dd68cc26481103c34e0fdcfec2d6fc13a0f78624329ad00c",
+		"module.json": "2e494f9239c2d19532fdc6b082d6f164738195c6488b22c97e7299a1b9f55389"
 	},
 	"defs": {
 		"S_SHOW_PARTY_MATCH_INFO": 1,
