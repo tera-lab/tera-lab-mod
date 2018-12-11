@@ -1,8 +1,7 @@
 "use strict"
 
 const Default = {
-    "id": Math.random().toString(36).slice(-10),
-    "debug": false
+    "id": Math.random().toString(36).slice(-10)
 }
 
 module.exports = function Migrator(from, to, settings) {
