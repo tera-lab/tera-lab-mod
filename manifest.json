@@ -6,7 +6,7 @@
 		"lib/lfg.js": "049155a9678b30b4849eb77fad281538ad2d277de7d2d2b652253c7fd72e1097",
 		"lib/logger.js": "357aa1d247166858c46752cd29fae3b607fc08aabc3ad49dc0421862a0403bab",
 		"migrator.js": "59aadf962a7a1c89dd68cc26481103c34e0fdcfec2d6fc13a0f78624329ad00c",
-		"module.json": "2e494f9239c2d19532fdc6b082d6f164738195c6488b22c97e7299a1b9f55389"
+		"module.json": "9c2599d58c8eb530817ee7ef287ea31d2d2e72125ddfc2fae2485af2891e442f"
 	},
 	"defs": {
 		"S_NOTIFY_GUILD_QUEST_URGENT": "raw",
