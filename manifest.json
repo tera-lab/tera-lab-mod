@@ -1,7 +1,7 @@
 {
 	"files": {
 		"index.js": "658dbb37bdfa2980c4f500dcfdf18aeaf8b4d2463ab10520709ba3e67cbeb724",
-		"lib/cosplay.js": "a92837ee39f8d1d752abca37c75ef8f632d1fc47a43153a8d7f22e54d78ea2fb",
+		"lib/cosplay.js": "87ec594bef3ebce05de845f634140f362b23d3f934162c8f12fb9a84ac16932f",
 		"lib/guild_bam.js": "60376344b7715ea44d055acd91ddca697b196ebecb019fceb01f9d4efb7f14d6",
 		"lib/lfg.js": "049155a9678b30b4849eb77fad281538ad2d277de7d2d2b652253c7fd72e1097",
 		"lib/logger.js": "357aa1d247166858c46752cd29fae3b607fc08aabc3ad49dc0421862a0403bab",
@@ -11,8 +11,8 @@
 	"defs": {
 		"S_NOTIFY_GUILD_QUEST_URGENT": "raw",
 		"S_SHOW_PARTY_MATCH_INFO": 1,
-		"S_SPAWN_USER": 13,
-		"S_UNICAST_TRANSFORM_DATA": [4,5],
-		"S_USER_EXTERNAL_CHANGE": [6,7]
+		"S_SPAWN_USER": 14,
+		"S_UNICAST_TRANSFORM_DATA": 5,
+		"S_USER_EXTERNAL_CHANGE": 7
 	}
 }
