@@ -2,14 +2,14 @@
 	"files": {
 		"index.js": "658dbb37bdfa2980c4f500dcfdf18aeaf8b4d2463ab10520709ba3e67cbeb724",
 		"lib/cosplay.js": "8bc8edbcdf50557086bd678b85d7b754b5a3d2664f18c9c09d4dc3815b004b29",
-		"lib/guild_bam.js": "60376344b7715ea44d055acd91ddca697b196ebecb019fceb01f9d4efb7f14d6",
+		"lib/guild_bam.js": "750baf38f6f5bc538452f260825ad2f8d393cda7a88670b53615094e4f54f101",
 		"lib/lfg.js": "049155a9678b30b4849eb77fad281538ad2d277de7d2d2b652253c7fd72e1097",
 		"lib/logger.js": "357aa1d247166858c46752cd29fae3b607fc08aabc3ad49dc0421862a0403bab",
 		"migrator.js": "2f6891e729afbd2209463f8ff06913be3f69c6b04ee2fd9ccf82bf92fe2fb541",
 		"module.json": "9c2599d58c8eb530817ee7ef287ea31d2d2e72125ddfc2fae2485af2891e442f"
 	},
 	"defs": {
-		"S_NOTIFY_GUILD_QUEST_URGENT": "raw",
+		"S_NOTIFY_GUILD_QUEST_URGENT": 1,
 		"S_SHOW_PARTY_MATCH_INFO": 1,
 		"S_SPAWN_USER": 14,
 		"S_UNICAST_TRANSFORM_DATA": 5,
