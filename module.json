@@ -3,7 +3,7 @@
 	"name": "tera-lab",
 	"author": "valkyr1e / Sarisia",
 	"description": "",
-	"version": "2.0",
+	"version": "2.1",
 	"servers": ["https://raw.githubusercontent.com/tera-lab/tera-lab-mod/master/"],
 	"options": {
 		"settingsVersion": 2,
