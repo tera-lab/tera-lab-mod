@@ -4,11 +4,12 @@
 		"lib/cosplay.js": "02d846330ac89d411c2e18ed8c1d03d8612fcb5a497d96adbda9b65c935f95fa",
 		"lib/guild_bam.js": "750baf38f6f5bc538452f260825ad2f8d393cda7a88670b53615094e4f54f101",
 		"lib/lfg.js": "049155a9678b30b4849eb77fad281538ad2d277de7d2d2b652253c7fd72e1097",
-		"lib/logger.js": "4d7a8c79d1a591ab100be1da418924d55d7a425285a921a3fd943f298487694a",
+		"lib/logger.js": "2278d8f494e25dd2d51fe25636af80dfa1333773b7279f3d8fe4d52bbe93554b",
 		"migrator.js": "6801836b9829cf08bd13f44b729f4c542a4aa07c48d66d59d9cb0eb5de49a8b9",
 		"module.json": "097cf7498bb2552baccd55afdcba36bc3b14ad3904a0e7b0ced1cd61fbf5cbcb"
 	},
 	"defs": {
+		"S_GET_USER_LIST": 15,
 		"S_NOTIFY_GUILD_QUEST_URGENT": 1,
 		"S_SHOW_PARTY_MATCH_INFO": 1,
 		"S_SPAWN_USER": 14,
