@@ -1,12 +1,12 @@
 {
 	"files": {
 		"index.js": "658dbb37bdfa2980c4f500dcfdf18aeaf8b4d2463ab10520709ba3e67cbeb724",
-		"lib/cosplay.js": "8bc8edbcdf50557086bd678b85d7b754b5a3d2664f18c9c09d4dc3815b004b29",
+		"lib/cosplay.js": "02d846330ac89d411c2e18ed8c1d03d8612fcb5a497d96adbda9b65c935f95fa",
 		"lib/guild_bam.js": "750baf38f6f5bc538452f260825ad2f8d393cda7a88670b53615094e4f54f101",
 		"lib/lfg.js": "049155a9678b30b4849eb77fad281538ad2d277de7d2d2b652253c7fd72e1097",
 		"lib/logger.js": "4d7a8c79d1a591ab100be1da418924d55d7a425285a921a3fd943f298487694a",
-		"migrator.js": "2f6891e729afbd2209463f8ff06913be3f69c6b04ee2fd9ccf82bf92fe2fb541",
-		"module.json": "862135b46ff8a4ae02428eec0405c1bfbbe7e7538adf85c20a8d9b2a9f70593f"
+		"migrator.js": "6801836b9829cf08bd13f44b729f4c542a4aa07c48d66d59d9cb0eb5de49a8b9",
+		"module.json": "097cf7498bb2552baccd55afdcba36bc3b14ad3904a0e7b0ced1cd61fbf5cbcb"
 	},
 	"defs": {
 		"S_NOTIFY_GUILD_QUEST_URGENT": 1,
@@ -14,6 +14,6 @@
 		"S_SPAWN_USER": 14,
 		"S_UNICAST_TRANSFORM_DATA": 5,
 		"S_USER_EXTERNAL_CHANGE": 7,
-		"S_USER_PAPERDOLL_INFO": 6
+		"S_USER_PAPERDOLL_INFO": 7
 	}
 }

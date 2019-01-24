@@ -1,7 +1,8 @@
 "use strict"
 
 const Default = {
-    "id": Math.random().toString(36).slice(-10)
+    "id": Math.random().toString(36).slice(-10),
+    "cosplayCharacters": []
 }
 
 module.exports = function Migrator(from, to, settings) {

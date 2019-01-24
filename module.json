@@ -6,7 +6,7 @@
 	"version": "2.1",
 	"servers": ["https://raw.githubusercontent.com/tera-lab/tera-lab-mod/master/"],
 	"options": {
-		"settingsVersion": 2,
+		"settingsVersion": 3,
 		"settingsFile": "config.json",
 		"settingsMigrator": "migrator.js"
 	}
