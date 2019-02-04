@@ -1,7 +1,7 @@
 {
 	"files": {
 		"index.js": "658dbb37bdfa2980c4f500dcfdf18aeaf8b4d2463ab10520709ba3e67cbeb724",
-		"lib/cosplay.js": "d4f00dbbc22de8fa2f8027812f89ac2fd2786a83cba87a3641da8a4c106b2ed0",
+		"lib/cosplay.js": "9824edddb0f6bcb660aca139598c752de550894294a2239ad24b86c490e29ea8",
 		"lib/guild_bam.js": "750baf38f6f5bc538452f260825ad2f8d393cda7a88670b53615094e4f54f101",
 		"lib/lfg.js": "049155a9678b30b4849eb77fad281538ad2d277de7d2d2b652253c7fd72e1097",
 		"lib/logger.js": "4334ddd0cbd3ba0a6da5a5e2ad6c8fc47a2b9fba6df1aa44e5be3ed3a80a59dd",
